@@ -366,11 +366,12 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="how-to-cite.html">How to Cite This Cookbook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization notebooks</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization Notebooks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01BasicVisualization.html">01_BasicVisualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02InteractiveVisualization.html">02_InteractiveVisualization Part 1: Geoviews</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_intro_to_interactive_viz_hvplot.html">Creating a Basic Interactive Dashboard with <code class="docutils literal notranslate"><span class="pre">hvPlot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01BasicVisualization.html">Basic Visualization using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Cartopy</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="02InteractiveVisualization.html">Interactive Visualization using <code class="docutils literal notranslate"><span class="pre">GeoViews</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_hvplot.html">Interactive Visualuzation using <code class="docutils literal notranslate"><span class="pre">hvPlot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_dashboard.html">Creating an Interactive Dashboard using <code class="docutils literal notranslate"><span class="pre">hvPlot</span></code> and <code class="docutils literal notranslate"><span class="pre">Panel</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preprocessing Notebooks for NCAR RDA</span></p>
 <ul class="nav bd-sidenav">
@@ -406,6 +407,44 @@
                     
   <section class="tex2jax_ignore mathjax_ignore" id="access-era5-data-from-ncars-research-data-archive-and-compute-anomaly">
 <h1>Access ERA5 data from NCAR’s Research Data Archive and compute anomaly<a class="headerlink" href="#access-era5-data-from-ncars-research-data-archive-and-compute-anomaly" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<p>ERA-5 Dataset is available from NCAR’s RDA in netcdf format as hourly files. A subset of this dataset is processed into Zarr format and available from NCAR RDA endpoints. To learn how you can create Zarr files from NCAR RDA netcdf files, please see <a class="reference internal" href="05_data_preprocessing.html"><span class="std std-doc">this notebook</span></a>.</p>
+<p>In this notebook,</p>
+<ul class="simple">
+<li><p>We will read data zarr stores from NCAR’s RDA endpoint</p></li>
+<li><p>Compute temperature anomaly for the years 1940-2023</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://foundations.projectpythia.org/core/xarray.html">Intro to Xarray</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://projectpythia.org/intake-cookbook/notebooks/intake_introduction.html">Intro to Intake</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Understanding of Zarr</a></p></td>
+<td><p>Helpful</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 30 minutes</p></li>
+</ul>
+</section>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <div class="cell docutils container">
@@ -2152,16 +2191,16 @@ Coordinates:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "npl-2024a"
+            mode: "python"
         },
         kernelOptions: {
-            name: "npl-2024a",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'npl-2024a'</script>
+    <script>kernelName = 'python3'</script>
 
                   </article>
 
@@ -2190,6 +2229,8 @@ Coordinates:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-global-variables">Specify global variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dask-cluster">Create a Dask cluster</a><ul class="nav section-nav flex-column">
