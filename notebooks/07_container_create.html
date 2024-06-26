@@ -477,7 +477,7 @@
 <h2>Run the container image<a class="headerlink" href="#run-the-container-image" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>Now that the image has been built it can also be ran locally to test functionality. Because the environment name is not set inside the container it’s required to pass the name of the conda environment to activate by using the following flag <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">ENV_NAME=ERA5_interactive</span></code>. The command below will run the container and make it accessible via a web browser:</p>
 <p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-e</span> <span class="pre">ENV_NAME=ERA5_interactive</span> <span class="pre">-p</span> <span class="pre">5006:5006</span> <span class="pre">ncote/pythia-era5-viz</span></code></p>
-<p>The site is now accessible at <a class="reference external" href="http://localhost:5006/04_dashboard">http://localhost:5006/04_dashboard</a>.</p>
+<p>The site is now accessible at http://localhost:5006/04_dashboard.</p>
 </section>
 <section id="container-registries">
 <h2>Container registries<a class="headerlink" href="#container-registries" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
